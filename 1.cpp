@@ -14,7 +14,6 @@ int sum_of_natural_numbers(int upto)
 int main(int argc, char** argv)
 {
   printf("%i\n", sum_of_natural_numbers(1000));
-
-  return 1;
+  return 0;
 }
 
