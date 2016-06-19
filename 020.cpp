@@ -1,36 +1,45 @@
 #include <stdio.h>
 #include <vector>
+#include <algorithm>
 
-int factorial_sum(int num)
+int sum_of_divisors(int num)
 {
-  std::vector<int> bignum = { num };
-  int sum = 0,
-      remainder = 0;
+  int result = 0;
 
-  for (int i = num - 1; i > 0; i--) {
-    for (int j = bignum.size() - 1; j >= 0; j--) {
-      bignum[j] *= i;
-      bignum[j] += remainder;
+  for (int i = 1; i < num; i++)
+    if (num % i == 0)
+      result += i;
 
-      remainder = bignum[j] / 10;
-      bignum[j] = bignum[j] % 10;
-    }
+  return result;
+}
 
-    while (remainder != 0) {
-      bignum.insert(bignum.begin(), remainder % 10);
-      remainder /= 10;
+int sum_of_amicable_numbers(int upto)
+{
+  std::vector<int> amicable;
+  int sum_i, sum = 0;
+
+  for (int i = 1; i < upto; i++) {
+    sum_i = sum_of_divisors(i);
+
+    if (i == sum_of_divisors(sum_i)) {
+      if (std::find(amicable.begin(), amicable.end(), i) == amicable.end() &&
+          std::find(amicable.begin(), amicable.end(), sum_i) == amicable.end() &&
+          sum_i != i) {
+        amicable.push_back(i);
+        amicable.push_back(sum_i);
+      }
     }
   }
 
-  for (int i = 0; i < bignum.size(); i++)
-    sum += bignum[i];
+  for (int i = 0; i < amicable.size(); i++)
+    sum += amicable[i];
 
   return sum;
 }
 
 int main(int argc, char** argv)
 {
-  printf("%i\n", factorial_sum(100));
+  printf("%i\n", sum_of_amicable_numbers(10000));
 
   return 0;
 }
