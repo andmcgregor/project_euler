@@ -65,7 +65,7 @@ int main(int argc, char** argv)
   //printf("test case 1: 150850429 == %" PRId64 "\n", sum_of_divisors_upto(pow(10, 6), 2017));
   //printf("test case 2: 249652238344557 == %" PRId64 "\n", sum_of_divisors_upto(pow(10, 9), 2017));
 
-  printf("%" PRId64 "\n", sum_of_divisors_upto(pow(10, 11), 2017));
+  //printf("%" PRId64 "\n", sum_of_divisors_upto(pow(10, 11), 2017));
 
   return 0;
 }
