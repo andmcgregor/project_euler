@@ -44,7 +44,7 @@ int get_score(std::string name)
 
 int main(int argc, char** argv)
 {
-  BigNum* bignum = new BigNum;
+  BigNum* bignum = new BigNum(0);
 
   std::ifstream file("data/p022_names.txt");
   std::string line, name;
