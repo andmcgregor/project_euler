@@ -3,13 +3,13 @@
 
 int main(int argc, char** argv)
 {
-  int count = 1,
+  int count = 2,
       targetSize = 1000;
 
   BigNum *a = new BigNum(1),
          *b = new BigNum(1);
 
-  while (a->size() < targetSize || b->size() < targetSize) {
+  while (a->size() < targetSize && b->size() < targetSize) {
     if (count % 2 == 0)
       a->add(b);
     else
