@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <vector>
 #include <cmath>
 
 bool is_prime(int num)
